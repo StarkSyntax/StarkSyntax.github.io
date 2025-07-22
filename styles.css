@@ -49,3 +49,37 @@ nav a:hover {
 section {
   margin-top: 3vw;
 }
+/* Fading "intro" text */
+.intro-container {
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  color: #00ff41;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3rem;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+/* Fade in slowly */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Make the main container appear after the intro */
+.container {
+  opacity: 0;
+  animation: introFadeOut 5s forwards;
+  animation-delay: 0s;
+}
+
+@keyframes introFadeOut {
+  to {
+    opacity: 1;
+  }
+}
