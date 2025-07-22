@@ -1,0 +1,51 @@
+/* styles.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: black;
+  color: #00ff41;
+  overflow: hidden;
+}
+
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.85);
+  margin: 2vw auto;
+  padding: 2vw;
+  max-width: 800px;
+  border: 1px solid #00ff41;
+  box-shadow: 0 0 30px #00ff4155;
+  border-radius: 10px;
+}
+
+h1, h2, h3 {
+  color: #00ff41;
+  text-shadow: 0 0 8px #00ff41aa;
+}
+
+nav a {
+  color: #00ff41;
+  margin-right: 2vw;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #00ff41;
+}
+
+section {
+  margin-top: 3vw;
+}
