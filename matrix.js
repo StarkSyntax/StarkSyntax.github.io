@@ -1,4 +1,3 @@
-// matrix.js
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 
@@ -7,8 +6,11 @@ canvas.height = window.innerHeight;
 
 const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const fontSize = 18;
-const columns = canvas.width / fontSize;
-const drops = Array.from({ length: columns }, () => 1);
+const columns = Math.floor(canvas.width / fontSize);
+const drops = Array(columns).fill(1);
+
+let speed = 33;                // Start slow (higher = slower)
+const speedIncrement = 1.05;   // Controls how quickly it speeds up
 
 function drawMatrix() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -26,9 +28,20 @@ function drawMatrix() {
     }
     drops[i]++;
   }
+
+  // Gradually speed up
+  if (speed > 10) {
+    speed = speed / speedIncrement;
+  }
 }
 
-setInterval(drawMatrix, 33);
+// Recursive loop to use variable interval
+function matrixLoop() {
+  drawMatrix();
+  setTimeout(matrixLoop, speed);
+}
+
+matrixLoop();
 
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
